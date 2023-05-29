@@ -7,7 +7,7 @@ public class Main {
 	}
 
 	public static void launcher() {
-		System.out.printf("a");
+		Patida.generarPartida();
 	}
 
 }
