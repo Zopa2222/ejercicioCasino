@@ -10,6 +10,10 @@ public class Mazo {
 		return this.cartas;
 	}
 
+	public void setCartas(ArrayList<Carta> mazoActualizado){
+		cartas = mazoActualizado;
+	}
+
 	public Mazo() {
 		cartas = new ArrayList<Carta>();
 		llenarMazo("Corazón");
@@ -32,9 +36,5 @@ public class Mazo {
 		this.cartas.add(carta12);
 		Carta carta13 = new Carta(pinta, 'k', 10);
 		this.cartas.add(carta13);
-	}
-
-	public static void descartarCarta(int posicion) {
-		this.mazo.remove(posicion);
 	}
 }

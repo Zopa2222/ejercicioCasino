@@ -10,14 +10,12 @@ public class Jugador {
 		return this.mano;
 	}
 
-	public void Jugador(){
-		int posicionCarta = ((int) (Math.random() * 52) + 1);
-		this.mano.add(Mazo.mazo.getMazo(posicionCarta));
-		Mazo.descartarCarta(posicionCarta);
-	}
-	public void tomarCarta() {
-		// TODO - implement Jugador.tomarCarta
-		throw new UnsupportedOperationException();
+	public void setMano(ArrayList<Carta> cartas) {
+		this.mano = cartas;
 	}
 
+	public void Jugador(){
+		ArrayList<Carta> mano = new ArrayList<>();
+		this.mano = mano;
+	}
 }

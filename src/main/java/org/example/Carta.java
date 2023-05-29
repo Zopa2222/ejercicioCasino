@@ -13,15 +13,12 @@ public class Carta {
 	}
 
 	public String getPinta() {
-		return this.pinta;
+		return pinta;
 	}
 	public char getSimbolo() {
-		return this.simbolo;
+		return simbolo;
 	}
 	public int getValor() {
-		return this.valor;
-	}
-	public String toString() {
-		return "Carta: " + getSimbolo() + " de " + getPinta() + " (Valor: " + getPinta() + ")";
+		return valor;
 	}
 }
