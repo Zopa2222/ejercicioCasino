@@ -1,7 +1,7 @@
 package org.example;
 
 import java.util.ArrayList;
-
+import java.util.Collections;
 
 public class Mazo {
 
@@ -16,17 +16,18 @@ public class Mazo {
 	}
 
 	public Mazo() {
-		cartas = new ArrayList<Carta>();
+		this.cartas = new ArrayList<Carta>();
 		llenarMazo("Corazón");
 		llenarMazo("Trébol");
 		llenarMazo("Diamante");
 		llenarMazo("Pica");
+		mezclarMazo();
 	}
 
-	public void llenarMazo(String pinta) {
+	private void llenarMazo(String pinta) {
 		Carta carta1 = new Carta(pinta, 'a', 11);
 		this.cartas.add(carta1);
-		for (int i = 2; i <= 10; i++) {
+		for (int i = 2; i < 11; i++) {
 			char numchar = (char) i;
 			Carta carta = new Carta(pinta, numchar, i);
 			this.cartas.add(carta);
@@ -38,4 +39,11 @@ public class Mazo {
 		Carta carta13 = new Carta(pinta, 'k', 10);
 		this.cartas.add(carta13);
 	}
+
+	public void descartarCartaMazo(Carta carta){
+		cartas.remove(carta);
+	}
+
+	public void mezclarMazo(){
+		Collections.shuffle(cartas);}
 }

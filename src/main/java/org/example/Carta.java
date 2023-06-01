@@ -12,12 +12,6 @@ public class Carta {
 		this.valor = valor;
 	}
 
-	public String getPinta() {
-		return pinta;
-	}
-	public char getSimbolo() {
-		return simbolo;
-	}
 	public int getValor() {
 		return valor;
 	}
