@@ -1,16 +1,20 @@
 package org.example;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Patida {
 
-	public static void inicializarPartida() {
+	private static Jugador[] inicializarPartida() {
 		Mazo mazo = new Mazo();
 		Jugador jugador1 = new Jugador();
 		Jugador jugador2 = new Jugador();
+		Jugador[] listaJugadores = new Jugador[2];
+		listaJugadores[0] = jugador1;
+		listaJugadores[1] = jugador2;
 		asignarCartas(mazo,jugador1);
 		asignarCartas(mazo,jugador2);
-		detPuntajes(jugador1,jugador2);
+		return listaJugadores;
 	}
 
 	private static void asignarCartas(Mazo mazo, Jugador jugador){
@@ -19,6 +23,14 @@ public class Patida {
 			jugador.agregarCarta(cartaRandom);
 			mazo.descartarCartaMazo(cartaRandom);
 		}
+	}
+
+	public static void partida(){
+		Jugador[] listaJugadores = inicializarPartida();
+		Jugador jugador1 = listaJugadores[0];
+		Jugador jugador2 = listaJugadores[1];
+		detPuntajes(jugador1,jugador2);
+		finalizarPartida(jugador1,jugador2);
 	}
 
 	private static void detPuntajes(Jugador jugador1, Jugador jugador2){
@@ -34,6 +46,9 @@ public class Patida {
 		jugador2.setPuntaje(sumaMano2);
 		System.out.println("Puntos del judador1 = " + jugador1.getPuntaje());
 		System.out.println("Puntos del judador2 = " + jugador2.getPuntaje());
+	}
+
+	private static void finalizarPartida(Jugador jugador1, Jugador jugador2){
 		mostrarResultado(determinarGanador(jugador1.getPuntaje(), jugador2.getPuntaje()));
 	}
 

@@ -7,7 +7,7 @@ public class Main {
 	}
 
 	public static void launcher() {
-		Patida.inicializarPartida();
+		Patida.partida();
 	}
 
 }
