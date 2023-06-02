@@ -11,10 +11,6 @@ public class Mazo {
 		return this.cartas;
 	}
 
-	public void setCartas(ArrayList<Carta> mazoActualizado){
-		cartas = mazoActualizado;
-	}
-
 	public Mazo() {
 		this.cartas = new ArrayList<Carta>();
 		llenarMazo("Corazón");
