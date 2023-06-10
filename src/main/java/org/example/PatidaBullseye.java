@@ -5,7 +5,7 @@ import java.util.Collections;
 
 public class PatidaBullseye {
 
-	public static JugadorBullseye ingresoUsuario(Usuario jugador, ArrayList<Caballo> listaCaballos) {
+	private static JugadorBullseye ingresoUsuario(Usuario jugador, ArrayList<Caballo> listaCaballos) {
 		String nombre = jugador.getNombre();
 		JugadorBullseye jugadorBullseye = new JugadorBullseye(nombre);
 
@@ -20,7 +20,7 @@ public class PatidaBullseye {
 		opcionesCaballos(listaCaballos);
 		System.out.println("Ingrese el número del caballo a apostar: ");
 		int numCaballo = Tools.ingresarSoloNumero();
-		while (!Tools.validarRangoNumero(opcion, 1, 6)) {
+		while (!Tools.validarRangoNumero(numCaballo, 1, 6)) {
 			System.out.println("Ingrese un valor dentro de las opciones: ");
 			numCaballo = Tools.ingresarSoloNumero();
 		}

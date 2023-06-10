@@ -17,13 +17,8 @@ public class Caballo {
         return numero;
     }
 
-    @Override
     public String toString() {
-        return "Caballo{" +
-                "nombre='" + nombre + '\'' +
-                ", numero='" + numero + '\'' +
-                ", color='" + color + '\'' +
-                '}';
+        return "[" + numero + "] " + nombre + ", Color = " + color;
     }
 
     public void setTiempo(int time){

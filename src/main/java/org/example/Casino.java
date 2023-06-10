@@ -3,7 +3,7 @@ package org.example;
 import java.util.Scanner;
 
 public class Casino {
-    public static Usuario registro(){
+    private static Usuario registro(){
         System.out.println("Bienvenid@ al casino Deluxe, ingrese su nombre: ");
         Scanner sc = new Scanner(System.in);
         String nombre = sc.nextLine();
@@ -28,10 +28,9 @@ public class Casino {
         }
     }
 
-    public static void opciones(){
+    private static void opciones(){
         System.out.println("¿Qué juego desea jugar?");
         System.out.println("[1] BlackJack");
         System.out.println("[2] Bullseye");
     }
-
 }
