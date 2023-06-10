@@ -7,6 +7,6 @@ public class Main {
 	}
 
 	public static void launcher() {
-		Patida.partida();
+		Casino.menu();
 	}
 }

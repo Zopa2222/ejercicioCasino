@@ -25,4 +25,8 @@ public class JugadorBullseye extends Usuario{
     public void setApuesta(int apostar) {
         this.apuesta = apostar;
     }
+
+    public int getApuesta() {
+        return apuesta;
+    }
 }
