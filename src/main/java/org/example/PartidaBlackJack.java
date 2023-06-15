@@ -40,8 +40,8 @@ public class PartidaBlackJack {
             sumaMano2 += jugador2.getMano().get(i).getValor();
         }
         jugador2.setPuntaje(sumaMano2);
-        System.out.println("Puntos del judador1 = " + jugador1.getPuntaje());
-        System.out.println("Puntos del judador2 = " + jugador2.getPuntaje());
+        System.out.println("Puntos de "+ jugador1.getNombre() + ": " + jugador1.getPuntaje());
+        System.out.println("Puntos de " + jugador2.getNombre() + ": " + jugador2.getPuntaje());
     }
 
     private static void finalizarPartida(JugadorBlackJack jugador1, JugadorBlackJack jugador2){
