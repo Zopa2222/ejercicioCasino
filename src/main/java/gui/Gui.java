@@ -48,9 +48,47 @@ public class Gui extends JFrame implements ActionListener {
         BEbutton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                // Acciones cuando se presione el botón Bullseye
+                ventanaPrincipal.setVisible(false);
+                initVentanaBE();
             }
         });
+    }
+
+    public void initVentanaBE(){
+        ventanaBE = new JFrame();
+        JPanel panel1 = new JPanel();
+
+        JLabel texto = new JLabel();
+        texto.setText("Defina el monto a apostar");
+
+        Integer[] opciones = {500, 1000, 5000, 10000, 25000, 50000};
+        JComboBox comboBoxApuesta = new JComboBox<>(opciones);
+
+        JButton volver = new JButton();
+        volver.setText("Volver al inicio");
+
+        JButton volverAJugar = new JButton();
+        volverAJugar.setText("Volver a jugar");
+
+        panel1.add(comboBoxApuesta);
+        panel1.add(texto);
+        panel1.add(volver);
+        panel1.add(volverAJugar);
+
+        ventanaBE.add(panel1);
+
+        ventanaBE.setSize(600,400);
+        ventanaBE.setLocationRelativeTo(null);
+        ventanaBE.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+
+        comboBoxApuesta.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                comboBoxApuesta.setEnabled(false);
+                int opcionSeleccionada = (int) comboBoxApuesta.getSelectedItem();
+            }
+        });
+
+        ventanaBE.setVisible(true);
     }
 
     public void initVentanaBJ(){
@@ -58,7 +96,7 @@ public class Gui extends JFrame implements ActionListener {
         JPanel panel = new JPanel();
 
         JLabel texto = new JLabel();
-        texto.setText(resultado());
+        texto.setText(resultadoBJ());
 
         JButton volver = new JButton();
         volver.setText("Volver al inicio");
@@ -87,7 +125,7 @@ public class Gui extends JFrame implements ActionListener {
         volverAJugar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                texto.setText(resultado());
+                texto.setText(resultadoBJ());
             }
         });
 
@@ -98,7 +136,7 @@ public class Gui extends JFrame implements ActionListener {
         ventanaPrincipal.setVisible(true);
     }
 
-    public static String resultado(){
+    public static String resultadoBJ(){
         int resultado = PartidaBlackJack.partida();
         switch (resultado) {
             case -1:
