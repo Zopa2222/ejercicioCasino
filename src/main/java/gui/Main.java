@@ -8,7 +8,6 @@ public class Main {
     }
 
     public static void launcher() {
-        Gui principal = new Gui();
-        principal.setVisible(true);
+        Casino.ventanaPrincipal();
     }
 }

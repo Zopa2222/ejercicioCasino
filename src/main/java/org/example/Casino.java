@@ -1,5 +1,7 @@
 package org.example;
 
+import gui.Gui;
+
 import java.util.Scanner;
 
 public class Casino {
@@ -21,7 +23,7 @@ public class Casino {
         }
         switch (opcion){
             case 1:
-                PartidaBlackJack.partida(usuario);
+                //PartidaBlackJack.partida(usuario);
                 break;
             case 2:
                 PatidaBullseye.partida(usuario);
@@ -33,4 +35,12 @@ public class Casino {
         System.out.println("[1] BlackJack");
         System.out.println("[2] Bullseye");
     }
+    //----------------------------------------------------------------------
+
+    public static void ventanaPrincipal(){
+        Gui principal = new Gui();
+        principal.mostrarVentanas();
+    }
+
+
 }
