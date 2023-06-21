@@ -1,24 +1,24 @@
 package org.example;
 
-public class JugadorBullseye extends Usuario{
+public class JugadorBullseye extends Usuario {
 
     private int apuesta = 50000;
-    private JugadorBlackJack.Caballo caballo;
+    private Caballo caballo;
 
     public JugadorBullseye(String name) {
         super(name);
     }
 
-    public JugadorBullseye (String name, JugadorBlackJack.Caballo caballo){
+    public JugadorBullseye(String name, Caballo caballo) {
         super(name);
         this.caballo = caballo;
     }
 
-    public JugadorBlackJack.Caballo getCaballo() {
-        return caballo;
+    public Caballo getCaballo() {
+        return this.caballo;
     }
 
-    public void setCaballo(JugadorBlackJack.Caballo caballo) {
+    public void setCaballo(Caballo caballo) {
         this.caballo = caballo;
     }
 
@@ -27,6 +27,6 @@ public class JugadorBullseye extends Usuario{
     }
 
     public int getApuesta() {
-        return apuesta;
+        return this.apuesta;
     }
 }

@@ -26,7 +26,7 @@ public class Casino {
                 //PartidaBlackJack.partida(usuario);
                 break;
             case 2:
-                PatidaBullseye.partida(usuario);
+                //PatidaBullseye.partida(usuario);
         }
     }
 
@@ -41,6 +41,5 @@ public class Casino {
         Gui principal = new Gui();
         principal.mostrarVentanas();
     }
-
 
 }

@@ -5,16 +5,16 @@ import java.util.Collections;
 
 public class PatidaBullseye {
 
-	private static JugadorBullseye ingresoUsuario(Usuario jugador, ArrayList<JugadorBlackJack.Caballo> listaCaballos) {
+	public static JugadorBullseye ingresoUsuario(Usuario jugador, ArrayList<Caballo> listaCaballos) {
 		String nombre = jugador.getNombre();
 		JugadorBullseye jugadorBullseye = new JugadorBullseye(nombre);
 
 		opcionesApuesta();
 		int opcion = Tools.ingresarSoloNumero();
-		while (!Tools.validarRangoNumero(opcion, 1, 6)) {
+		/*while (!Tools.validarRangoNumero(opcion, 1, 6)) {
 			System.out.println("Ingrese un valor dentro de las opciones: ");
 			opcion = Tools.ingresarSoloNumero();
-		}
+		} */
 		jugadorBullseye.setApuesta(apuesta(opcion));
 
 		opcionesCaballos(listaCaballos);
@@ -29,9 +29,9 @@ public class PatidaBullseye {
 		return jugadorBullseye;
 	}
 
-	public static void partida(Usuario usuario){
-		ArrayList<JugadorBlackJack.Caballo> listaCaballos = inicializarCaballos();
-		JugadorBullseye jugador = ingresoUsuario(usuario, listaCaballos);
+	public static String partida(JugadorBullseye jugador, ArrayList<Caballo> listaCaballos){
+		//ArrayList<JugadorBlackJack.Caballo> listaCaballos = inicializarCaballos();
+		//JugadorBullseye jugador = ingresoUsuario(usuario, listaCaballos);
 
 		listaCaballos.remove(jugador.getCaballo());
 		Collections.shuffle(listaCaballos);
@@ -42,15 +42,15 @@ public class PatidaBullseye {
 		JugadorBullseye jugador6 = new JugadorBullseye("Sexto", listaCaballos.get(4));
 		listaCaballos.add(jugador.getCaballo());
 
-		JugadorBlackJack.Caballo caballoGanador = carrera(listaCaballos);
-		resultado(jugador,caballoGanador);
+		Caballo caballoGanador = carrera(listaCaballos);
+		return resultado(jugador,caballoGanador);
 	}
 
-	private static JugadorBlackJack.Caballo carrera(ArrayList<JugadorBlackJack.Caballo> listaCaballos){
+	public static Caballo carrera(ArrayList<Caballo> listaCaballos){
 		for (int i=0; i<6; i++){
 			listaCaballos.get(i).setTiempo((int)(Math.random()*100+1));
 		}
-		JugadorBlackJack.Caballo caballoGanador=listaCaballos.get(0);
+		Caballo caballoGanador=listaCaballos.get(0);
 		for (int i=1; i<6; i++){
 			if(caballoGanador.getTiempo()>listaCaballos.get(i).getTiempo()){
 				caballoGanador = listaCaballos.get(i);
@@ -59,24 +59,26 @@ public class PatidaBullseye {
 		return caballoGanador;
 	}
 
-	private static void resultado(JugadorBullseye jugador, JugadorBlackJack.Caballo caballoGanador){
+	public static String resultado(JugadorBullseye jugador, Caballo caballoGanador){
 		if (jugador.getCaballo()==caballoGanador){
-			System.out.println("Felicidades, ganaste!");
-			System.out.println("Tu ganancia total es de: " + ganancia(jugador.getApuesta()));
+			jugador.setApuesta(ganancia(jugador.getApuesta()));
+			return ("Felicidades, ganaste! "+"Tu ganancia total es de: " + jugador.getApuesta());
+			//System.out.println("Tu ganancia total es de: " + ganancia(jugador.getApuesta()));
 		} else {
-			System.out.println("Perdiste :(");
+			//System.out.println("Perdiste :(");
 			jugador.setApuesta(0);
+			return "Has perdido";
 		}
 	}
 
-	private static ArrayList<JugadorBlackJack.Caballo> inicializarCaballos(){
-		JugadorBlackJack.Caballo caballo1 = new JugadorBlackJack.Caballo("Pollo","Amarillo",1);
-		JugadorBlackJack.Caballo caballo2 = new JugadorBlackJack.Caballo("Gato","Blanco",2);
-		JugadorBlackJack.Caballo caballo3 = new JugadorBlackJack.Caballo("Perro", "Rosa", 3);
-		JugadorBlackJack.Caballo caballo4 = new JugadorBlackJack.Caballo("Pato", "Naranjo", 4);
-		JugadorBlackJack.Caballo caballo5 = new JugadorBlackJack.Caballo("Conejo", "Verde", 5);
-		JugadorBlackJack.Caballo caballo6 = new JugadorBlackJack.Caballo("Tigre","Rojo", 6);
-		ArrayList<JugadorBlackJack.Caballo> listaCaballos = new ArrayList<JugadorBlackJack.Caballo>();
+	public static ArrayList<Caballo> inicializarCaballos(){
+		Caballo caballo1 = new Caballo("Pollo","Amarillo",1);
+		Caballo caballo2 = new Caballo("Gato","Blanco",2);
+		Caballo caballo3 = new Caballo("Perro", "Rosa", 3);
+		Caballo caballo4 = new Caballo("Pato", "Naranjo", 4);
+		Caballo caballo5 = new Caballo("Conejo", "Verde", 5);
+		Caballo caballo6 = new Caballo("Tigre","Rojo", 6);
+		ArrayList<Caballo> listaCaballos = new ArrayList<Caballo>();
 		listaCaballos.add(caballo1);
 		listaCaballos.add(caballo2);
 		listaCaballos.add(caballo3);
@@ -86,7 +88,7 @@ public class PatidaBullseye {
 		return listaCaballos;
 	}
 
-	private static void opcionesCaballos(ArrayList<JugadorBlackJack.Caballo> listaCaballos){
+	public static void opcionesCaballos(ArrayList<Caballo> listaCaballos){
 		System.out.println("Los caballos son: ");
 		System.out.println(listaCaballos.get(0).toString());
 		System.out.println(listaCaballos.get(1).toString());
@@ -96,7 +98,7 @@ public class PatidaBullseye {
 		System.out.println(listaCaballos.get(5).toString());
 	}
 
-	private static int ganancia(int apuesta){
+	public static int ganancia(int apuesta){
 		switch (apuesta){
 			case 500:
 				return 500*2;
@@ -111,10 +113,10 @@ public class PatidaBullseye {
 			case 50000:
 				return 50000*10;
 		}
-		return 0;
+		return 2;
 	}
 
-	private static int apuesta(int opcion){
+	public static int apuesta(int opcion){
 		switch (opcion){
 			case 1:
 				return 500;
