@@ -8,6 +8,10 @@ public class Main {
     }
 
     public static void launcher() {
-        Casino.ventanaPrincipal();
+        controlador();
+    }
+
+    public static void controlador(){
+        Controlador.abrirPrincipal();
     }
 }

@@ -100,12 +100,12 @@ public class Gui extends JFrame implements ActionListener {
 
         ventanaBE.setSize(600,400);
         ventanaBE.setLocationRelativeTo(null);
-        ventanaBE.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        ventanaBE.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         comboBoxApuesta.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                comboBoxApuesta.setEnabled(false);
-                int opcionSeleccionada = (int) comboBoxApuesta.getSelectedItem();
+                int opcionSeleccionada = (int) comboBoxApuesta.getSelectedIndex();
+                //comboBoxApuesta.setEnabled(false);
                 jugador.setApuesta(opcionSeleccionada);
             }
         });
@@ -113,7 +113,7 @@ public class Gui extends JFrame implements ActionListener {
         comboBoxCaballo.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                comboBoxCaballo.setEnabled(false);
+                //comboBoxCaballo.setEnabled(false);
                 int indiceCaballo = comboBoxCaballo.getSelectedIndex();
                 jugador.setCaballo((Caballo) caballos.get(indiceCaballo));
             }
@@ -171,7 +171,7 @@ public class Gui extends JFrame implements ActionListener {
 
         ventanaBJ.setSize(600,400);
         ventanaBJ.setLocationRelativeTo(null);
-        ventanaBJ.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        ventanaBJ.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         volver.addActionListener(new ActionListener() {
             @Override
@@ -214,4 +214,6 @@ public class Gui extends JFrame implements ActionListener {
     public void actionPerformed(ActionEvent e) {
 
     }
+
+
 }

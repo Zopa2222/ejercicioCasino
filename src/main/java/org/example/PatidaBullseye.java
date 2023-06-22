@@ -100,17 +100,17 @@ public class PatidaBullseye {
 
 	public static int ganancia(int apuesta){
 		switch (apuesta){
-			case 500:
+			case 0:
 				return 500*2;
-			case 1000:
+			case 1:
 				return 1000*3;
-			case 5000:
+			case 2:
 				return 5000*4;
-			case 10000:
+			case 3:
 				return 10000*5;
-			case 25000:
+			case 4:
 				return 25000*7;
-			case 50000:
+			case 5:
 				return 50000*10;
 		}
 		return 2;
