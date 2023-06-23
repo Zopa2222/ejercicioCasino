@@ -43,3 +43,15 @@ Decisiones al momento de programar:
 
 Análisis:
 La relación entre la clase 'Caballo' y 'JugadorBullseye' es una asociación unidireccional debido a que a cada jugador se le asigna como atributo el caballo al cual le realizó la apuesta, pero el caballo no necesita saber quien apostó por él. Luego la clase 'PartidaBullseye' depende de las clases 'Caballo' y 'JugadorBullseye' ya que instancia objetos de estos tipos y utiliza métodos de los mismos, y depende de 'Tools' ya que utiliza sus métodos para realizar las validaciones de Input dela consola.
+
+Cuarta entrega--------------------------------- ----------------------------------------------------------------------------
+Se clasificaron las clases en 3 diferentes paquetes:
+-Launcher (Lanzador)
+-Org.example (Contexto problema)
+-Gui (Gestion de ventanas): Se crearon 4 clases:
+ -VentanaPrincipal: Plantilla encargada de la primera ventana que ve el usuario, mediante la cual puede acceder a las otras 2.
+ -VentanaBlackjack: Plantilla de la ventana que usa el método relacionado con el juego 'Blackjack'.
+ -VentanaBullseye: Plantilla de la ventana usada en el juego 'Bullseye', que llama a la clase con contexto de este juego.
+ -Controlador: Instancia las 3 ventanas anteriores y tiene métodos que permiten abrirlas y cerrarlas.
+
+Además se modificaron métodos dentro del contexto problema con el fin de que no interfieran con el funcionamiento de las ventanas.
