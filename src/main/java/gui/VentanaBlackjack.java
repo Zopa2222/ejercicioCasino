@@ -28,6 +28,7 @@ public class VentanaBlackjack extends JFrame implements ActionListener {
 
         jugarAgain.setText("Jugar");
         volver.setText("Volver atrás");
+        resultado.setText("Haga clic en Jugar");
 
         panel.add(resultado);
         panel.add(jugarAgain);
